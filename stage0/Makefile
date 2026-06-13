@@ -11,6 +11,7 @@ TESTDIR := tests
 BOOTSTRAP ?= COMPILE
 PREFIX ?= 
 SUFFIX ?= 
+DEBUG ?= 0
 
 COMPILE_CFLAGS := -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter
 COMPILE_LDFLAGS := 
@@ -20,6 +21,9 @@ ifneq ($(PREFIX),)
 endif
 ifneq ($(SUFFIX),)
   override SUFFIX := -$(SUFFIX)
+endif
+ifeq ($(DEBUG),1)
+  COMPILE_CFLAGS += -DDEBUG
 endif
 
 ASSEMBLER_B64 := $(B64DIR)/assembler.b64
@@ -73,8 +77,20 @@ $(OUTDIR):
 	mkdir -p $@
 
 check: all
-	@echo "not implemented"
-	exit 1
+	PASSED=0; \
+	FAILED=0; \
+	for f in $(TESTDIR)/*/test.sh; do \
+		if [[ -f $$f ]]; then \
+			if (cd $$(dirname $$f) && ./test.sh $(abspath $(ASSEMBLER)) $(abspath $(EPACK))); then \
+				PASSED=$$(($$PASSED + 1)); \
+			else \
+				FAILED=$$(($$FAILED + 1)); \
+			fi \
+		fi \
+	done; \
+	echo "PASSED: $$PASSED"; \
+	echo "FAILED: $$FAILED"; \
+	exit $$FAILED
 
 clean:
 	rm -rf build/

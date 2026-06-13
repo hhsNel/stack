@@ -1,0 +1,91 @@
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+:btest
+	MOVrq Rrdi__ NUM0+48 NUM0+32 NUM0+16 NUM0+0
+	MOVrq Rrsi__ NUM1+48 NUM1+32 NUM1+16 NUM1+0
+	SUBrr Rrdi__ Rrsi__
+:etest
+	MOVrr Rrsi__ Rrsp__
+	SUBrw Rrsp__ x0020_
+	CALL_ @lltoa
+	MOVrr Rrdi__ Rrsi__
+	MOVrr Rrsi__ Rrax__
+	CALL_ @wrout
+	XORrr Rrdi__ Rrdi__
+	CALL_ @exit_
+:lltoa
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrdx__
+	PUSH_ Rrdi__
+	PUSH_ Rrsi__
+	MOVrr Rrax__ Rrdi__
+:_llal
+	XORrr Rrdx__ Rrdx__
+	MOVrw Rrdi__ x000a_
+	DIV__ Rrdi__
+	ADDrw Rrdx__ x0030_
+	SRPb_ Rrsi__ x000a_ Rrdx__
+	INC__ Rrsi__
+	TSTrr Rrax__ Rrax__
+	JNE__ @_llal
+	LSVq_ Rrdi__ x0000_
+	SUBrr Rrsi__ Rrdi__
+	CALL_ @strrv
+	MOVrr Rrax__ Rrsi__
+	POP__ Rrsi__
+	POP__ Rrdi__
+	POP__ Rrdx__
+	POP__ Rrbp__
+	RET__
+:strrv
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrdi__
+	PUSH_ Rrsi__
+	PUSH_ Rrcx__
+	PUSH_ Rrax__
+	PUSH_ Rrdx__
+	MOVrr Rrcx__ Rrdi__
+	ADDrr Rrcx__ Rrsi__
+	SUBrw Rrcx__ x0001_
+:_srvl
+	LRPb_ Rrax__ Rrdi__ x0000_
+	LRPb_ Rrdx__ Rrcx__ x0000_
+	SRPb_ Rrdi__ x0000_ Rrdx__
+	SRPb_ Rrcx__ x0000_ Rrax__
+	ADDrw Rrdi__ x0001_
+	SUBrw Rrcx__ x0001_
+	CMPrr Rrdi__ Rrcx__
+	JLT__ @_srvl
+	POP__ Rrdx__
+	POP__ Rrax__
+	POP__ Rrcx__
+	POP__ Rrsi__
+	POP__ Rrdi__
+	POP__ Rrbp__
+	RET__
+:wrout
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrdi__
+	PUSH_ Rrsi__
+	LSVq_ Rrsi__ x0008_
+	LSVq_ Rrdx__ x0000_
+	MOVrw Rrdi__ x0001_
+	MOVrw Rrax__ x0001_
+	SYSCL
+	POP__ Rrsi__
+	POP__ Rrdi__
+	POP__ Rrbp__
+	RET__
+:exit_
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrax__
+	MOVrw Rrax__ x003c_
+	SYSCL
+	POP__ Rrax__
+	POP__ Rrbp__
+	RET__
+

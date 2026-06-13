@@ -3,8 +3,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 
-/* debug */
-//#include <stdio.h>
+#ifdef DEBUG
+#include <stdio.h>
+#endif
 
 enum token_type {
 	TK_REF = 0,
@@ -22,7 +23,7 @@ struct token {
 	/* '@' = ref */
 	/* 'x' = dword immediate */
 	/* 'R' = reg */
-	/* ' ' = instr */
+	/* ' ' or '\t' = instr */
 	/* ':' = label */
 	/* chars 1-5 are parsed */
 	/* the 6-th char is ignored */
@@ -46,6 +47,7 @@ struct operand {
 	enum operand_type type;
 	uint64_t bit_offset;
 	uint64_t rex_bit;
+	uint64_t imm_len;
 };
 
 struct instruction {
@@ -85,33 +87,83 @@ struct reg registers[] = {
 
 struct instruction instructions[] = {
 #define NO_OPERAND {.type=OPRD_NONE}
-#define REX_R 0x4
-#define REX_B 0x1
-#define OREX 0x48
+#define REXR 0x4
+#define REXB 0x1
+#define REXW 0x48
+#define REX0 0x40
 #define REG_OPERAND(OFF,REX_BIT) {.type=OPRD_REG,.bit_offset=OFF,.rex_bit=REX_BIT}
-#define IMM_OPERAND(OFF) {.type=OPRD_IMM,.bit_offset=OFF}
+#define IMM_OPERAND(OFF,LEN) {.type=OPRD_IMM,.bit_offset=OFF,.imm_len=LEN}
+#define IMM_OPERAND1(OFF) IMM_OPERAND(OFF,1)
+#define IMM_OPERAND2(OFF) IMM_OPERAND(OFF,2)
+#define IMM_OPERAND4(OFF) IMM_OPERAND(OFF,4)
 #define DECL_INSTR(NAME,REX_BYTE,LEN,OP0,OP1,OP2,OP3,OP4,...) {.name={NAME[0],NAME[1],NAME[2],NAME[3],NAME[4]},.rex_byte=REX_BYTE,.len=LEN,.op0=OP0,.op1=OP1,.op2=OP2,.op3=OP3,.op4=OP4,.encoding=__VA_ARGS__},
-	DECL_INSTR("MOVrr", 0,  3,  REG_OPERAND(16,REX_R), REG_OPERAND(19,REX_B), NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {OREX,0x89,0xC0})
-	DECL_INSTR("MOVrw", 0,  7,  REG_OPERAND(16,REX_B), IMM_OPERAND(24),       NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {OREX,0xC7,0xC0,0x00,0x00,0x00,0x00})
-	DECL_INSTR("MOVrd", 0,  7,  REG_OPERAND(16,REX_B), IMM_OPERAND(40),       IMM_OPERAND(24), NO_OPERAND,     NO_OPERAND,      {OREX,0xC7,0xC0,0x00,0x00,0x00,0x00})
-	DECL_INSTR("MOVrq", 0,  10, REG_OPERAND(8,REX_B),  IMM_OPERAND(64),       IMM_OPERAND(48), IMM_OPERAND(32),IMM_OPERAND(16), {OREX,0xB8,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00})
-	DECL_INSTR("ADDrr", 0,  3,  REG_OPERAND(16,REX_R), REG_OPERAND(19,REX_B), NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {OREX,0x01,0xC0})
-	DECL_INSTR("SUBrr", 0,  3,  REG_OPERAND(16,REX_R), REG_OPERAND(19,REX_B), NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {OREX,0x29,0xC0})
-	DECL_INSTR("XORrr", 0,  3,  REG_OPERAND(16,REX_R), REG_OPERAND(19,REX_B), NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {OREX,0x31,0xC0})
-	DECL_INSTR("CMPrr", 0,  3,  REG_OPERAND(16,REX_R), REG_OPERAND(19,REX_B), NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {OREX,0x39,0xC0})
-	DECL_INSTR("JMP__", -1, 5,  IMM_OPERAND(8),        NO_OPERAND,            NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {0xE9,0x00,0x00,0x00,0x00})
-	DECL_INSTR("JE___", -1, 6,  IMM_OPERAND(16),       NO_OPERAND,            NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {0x0F,0x84,0x00,0x00,0x00,0x00})
-	DECL_INSTR("JNE__", -1, 6,  IMM_OPERAND(16),       NO_OPERAND,            NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {0x0F,0x85,0x00,0x00,0x00,0x00})
-	DECL_INSTR("SYSCL", -1, 2,  NO_OPERAND,            NO_OPERAND,            NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {0x0F,0x05})
-	DECL_INSTR("RET__", -1, 1,  NO_OPERAND,            NO_OPERAND,            NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {0xC3})
+	DECL_INSTR("MOVrr", 0,  3,  REG_OPERAND(16,REXB), REG_OPERAND(19,REXR), NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x89,0xC0})
+	DECL_INSTR("MOVrw", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND4(24),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC7,0xC0,0x00,0x00,0x00,0x00})
+	DECL_INSTR("MOVrd", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND2(40),     IMM_OPERAND2(24),     NO_OPERAND,        NO_OPERAND,       {REXW,0xC7,0xC0,0x00,0x00,0x00,0x00})
+	DECL_INSTR("MOVrq", 0,  10, REG_OPERAND(8,REXB),  IMM_OPERAND2(64),     IMM_OPERAND2(48),     IMM_OPERAND2(32),  IMM_OPERAND2(16), {REXW,0xB8,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00})
 
-	DECL_INSTR("DB___", -1, 1,  IMM_OPERAND(0),        NO_OPERAND,            NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {0x00})
-	DECL_INSTR("DW___", -1, 2,  IMM_OPERAND(0),        NO_OPERAND,            NO_OPERAND,      NO_OPERAND,     NO_OPERAND,      {0x00,0x00})
+	DECL_INSTR("INC__", 0,  3,  REG_OPERAND(16,REXB), NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xFF,0xC0})
+	DECL_INSTR("DEC__", 0,  3,  REG_OPERAND(16,REXB), NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xFF,0xC8})
+
+	DECL_INSTR("ADDrw", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND4(24),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x81,0xC0,0x00,0x00,0x00,0x00})
+	DECL_INSTR("ADDrd", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND2(40),     IMM_OPERAND2(24),     NO_OPERAND,        NO_OPERAND,       {REXW,0x81,0xC0,0x00,0x00,0x00,0x00})
+	DECL_INSTR("ADDrr", 0,  3,  REG_OPERAND(16,REXB), REG_OPERAND(19,REXR), NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x01,0xC0})
+	DECL_INSTR("SUBrw", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND4(24),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x81,0xE8,0x00,0x00,0x00,0x00})
+	DECL_INSTR("SUBrd", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND2(40),     IMM_OPERAND2(24),     NO_OPERAND,        NO_OPERAND,       {REXW,0x81,0xE8,0x00,0x00,0x00,0x00})
+	DECL_INSTR("SUBrr", 0,  3,  REG_OPERAND(16,REXB), REG_OPERAND(19,REXR), NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x29,0xC0})
+
+	DECL_INSTR("DIV__", 0,  3,  REG_OPERAND(16,REXB), NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xF7,0xF0})
+
+	DECL_INSTR("XORrr", 0,  3,  REG_OPERAND(16,REXB), REG_OPERAND(19,REXR), NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x31,0xC0})
+
+	DECL_INSTR("CMPrr", 0,  3,  REG_OPERAND(16,REXB), REG_OPERAND(19,REXR), NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x39,0xC0})
+	DECL_INSTR("TSTrr", 0,  3,  REG_OPERAND(16,REXB), REG_OPERAND(19,REXR), NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x85,0xC0})
+
+	DECL_INSTR("JE___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x84,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNE__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x85,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JLT__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8C,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JGT__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8F,0x00,0x00,0x00,0x00})
+	DECL_INSTR("SYSCL", -1, 2,  NO_OPERAND,           NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x05})
+
+	DECL_INSTR("JMP__", -1, 5,  IMM_OPERAND4(8),      NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0xE9,0x00,0x00,0x00,0x00})
+	DECL_INSTR("CALL_", -1, 5,  IMM_OPERAND4(8),      NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0xE8,0x00,0x00,0x00,0x00})
+	DECL_INSTR("RET__", -1, 1,  NO_OPERAND,           NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0xC3})
+
+	DECL_INSTR("PUSH_", 0,  2,  REG_OPERAND(8,REXB),  NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x50})
+	DECL_INSTR("POP__", 0,  2,  REG_OPERAND(8,REXB),  NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x58})
+
+	DECL_INSTR("LSVq_", 0,  5,  REG_OPERAND(19,REXR), IMM_OPERAND1(32),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x8B,0x44,0x24,0x00})
+	DECL_INSTR("LSVd_", -1, 4,  REG_OPERAND(11,REXR), IMM_OPERAND1(24),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x8B,0x44,0x24,0x00})
+	DECL_INSTR("LSVw_", 1,  6,  REG_OPERAND(27,REXR), IMM_OPERAND1(40),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x66,REX0,0x8B,0x44,0x24,0x00})
+	DECL_INSTR("LSVb_", -1, 4,  REG_OPERAND(11,REXR), IMM_OPERAND1(24),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x8A,0x44,0x24,0x00})
+
+	DECL_INSTR("SSVq_", 0,  5,  REG_OPERAND(19,REXR), IMM_OPERAND1(32),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x89,0x44,0x24,0x00})
+	DECL_INSTR("SSVd_", -1, 4,  REG_OPERAND(11,REXR), IMM_OPERAND1(24),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x89,0x44,0x24,0x00})
+	DECL_INSTR("SSVw_", 1,  6,  REG_OPERAND(27,REXR), IMM_OPERAND1(40),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x66,REX0,0x89,0x44,0x24,0x00})
+	DECL_INSTR("SSVb_", -1, 4,  REG_OPERAND(11,REXR), IMM_OPERAND1(24),     NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x88,0x44,0x24,0x00})
+
+	DECL_INSTR("LRPq_", 0,  4,  REG_OPERAND(19,REXR), REG_OPERAND(16,REXB), IMM_OPERAND1(24),     NO_OPERAND,        NO_OPERAND,       {REXW,0x8B,0x40,0x00})
+	DECL_INSTR("LRPd_", -1, 3,  REG_OPERAND(11,REXR), REG_OPERAND(8,REXB),  IMM_OPERAND1(24),     NO_OPERAND,        NO_OPERAND,       {0x8B,0x40,0x00})
+	DECL_INSTR("LRPw_", 1,  5,  REG_OPERAND(27,REXR), REG_OPERAND(24,REXB), IMM_OPERAND1(24),     NO_OPERAND,        NO_OPERAND,       {0x66,REX0,0x8B,0x40,0x00})
+	DECL_INSTR("LRPb_", -1, 3,  REG_OPERAND(11,REXR), REG_OPERAND(8,REXB),  IMM_OPERAND1(24),     NO_OPERAND,        NO_OPERAND,       {0x8A,0x40,0x00})
+
+	DECL_INSTR("SRPq_", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),     REG_OPERAND(19,REXR), NO_OPERAND,        NO_OPERAND,       {REXW,0x89,0x40,0x00})
+	DECL_INSTR("SRPd_", -1, 3,  REG_OPERAND(8,REXB),  IMM_OPERAND1(24),     REG_OPERAND(11,REXR), NO_OPERAND,        NO_OPERAND,       {0x89,0x40,0x00})
+	DECL_INSTR("SRPw_", 1,  5,  REG_OPERAND(24,REXB), IMM_OPERAND1(24),     REG_OPERAND(27,REXR), NO_OPERAND,        NO_OPERAND,       {0x66,REX0,0x89,0x40,0x00})
+	DECL_INSTR("SRPb_", -1, 3,  REG_OPERAND(8,REXB),  IMM_OPERAND1(24),     REG_OPERAND(11,REXR), NO_OPERAND,        NO_OPERAND,       {0x88,0x40,0x00})
+
+	DECL_INSTR("DB___", -1, 1,  IMM_OPERAND1(0),      NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x00})
+	DECL_INSTR("DW___", -1, 2,  IMM_OPERAND2(0),      NO_OPERAND,           NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x00,0x00})
 #undef NO_OPERAND
-#undef REX_R
-#undef REX_B
+#undef REXR
+#undef REXB
+#undef REXW
+#undef REX0
 #undef REG_OPERAND
 #undef IMM_OPERAND
+#undef IMM_OPERAND1
+#undef IMM_OPERAND2
+#undef IMM_OPERAND4
 #undef DECL_INSTR
 };
 
@@ -167,6 +219,9 @@ find_instr(struct token t)
 	}
 
 	write(2, "no such instruction\n", 20);
+	#ifdef DEBUG
+	fprintf(stderr, "str: %s\n", t.str);
+	#endif
 	exit(1);
 }
 
@@ -187,8 +242,9 @@ tokenize()
 		ret = read(STDIN_FILENO, &tk.str, 5);
 		if(ret < 5) break;
 
-		/* debug */
-		//printf("read string: %.5s\n", tk.str);
+		#ifdef DEBUG
+		fprintf(stderr, "read string: %.5s\n", tk.str);
+		#endif
 
 		tk.offset = prev_offset;
 		
@@ -206,7 +262,7 @@ tokenize()
 
 			goto tk_type_found;
 		}
-		if(c == ' ') {
+		if(c == ' ' || c == '\t') {
 			tk.type = TK_INSTR;
 			tk.lut_idx = find_instr(tk);
 			prev_offset += instructions[tk.lut_idx].len;
@@ -228,8 +284,9 @@ tokenize()
 		}
 
 		write(2, "unknown tk type\n", 16);
-		/* debug */
-		//printf("got: %c\n", c);
+		#ifdef DEBUG
+		fprintf(stderr, "got: %c\n", c);
+		#endif
 		exit(1);
 
 	tk_type_found:
@@ -289,8 +346,9 @@ parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past
 		if(tk.type != TK_REG) {
 			write(2, "expected a register\n", 20);
 
-			/* debug */
-			//printf("got: %i\n", tk.type);
+			#ifdef DEBUG
+			fprintf(stderr, "got: %i\n", tk.type);
+			#endif
 
 			exit(1);
 		}
@@ -316,7 +374,7 @@ parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past
 			operand_encoding <<= 4;
 			operand_encoding |= parse_hex_dig(tk.str[3]);
 
-			*(uint16_t *)enc = (uint16_t)operand_encoding;
+			mem_cpy(enc, &operand_encoding, op.imm_len);
 
 			++ *i;
 			return 0;
@@ -325,7 +383,7 @@ parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past
 			operand_encoding = find_label_offset(tk);
 			operand_encoding -= offset_past_instr;
 
-			*(uint32_t *)enc = (uint32_t)operand_encoding;
+			mem_cpy(enc, &operand_encoding, op.imm_len);
 
 			++ *i;
 			return 0;
@@ -334,7 +392,7 @@ parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past
 			operand_encoding = find_label_offset(tk);
 			operand_encoding += 0x400078;
 
-			*(uint64_t *)enc = (uint64_t)operand_encoding;
+			mem_cpy(enc, &operand_encoding, op.imm_len);
 
 			++ *i;
 			return 0;
@@ -367,11 +425,14 @@ emit()
 			exit(1);
 		}
 
-		rex = 0x48; /* REX | REX.W */
 		instr = instructions[tk.lut_idx];
+		if(instr.rex_byte != -1) {
+			rex = instr.encoding[instr.rex_byte];
+		}
 
-		/* debug */
-		//printf("idx: %lu; op0 type: %c; op1 type: %c\n", tk.lut_idx, "NIR"[instr.op0.type], "NIR"[instr.op1.type]);
+		#ifdef DEBUG
+		fprintf(stderr, "idx: %lu; op0 type: %c; op1 type: %c\n", tk.lut_idx, "NIR"[instr.op0.type], "NIR"[instr.op1.type]);
+		#endif
 
 		len = instr.len;
 		mem_cpy(enc, instr.encoding, len);
@@ -391,8 +452,9 @@ emit()
 			exit(1);
 		}
 
-		/* debug */
-		//printf("i = %lu; enc = 0x%08lx\n", i, *(uint64_t *)&enc);
+		#ifdef DEBUG
+		fprintf(stderr, "i = %lu; enc = 0x%08lx\n", i, *(uint64_t *)&enc);
+		#endif
 	}
 }
 
@@ -406,14 +468,15 @@ int main() {
 
 	tokenize();
 
-	/* debug */
-	//for(uint64_t i = 0; i < num_tokens; ++i) {
-	//	printf("type: %c; str: %.5s; off: %i\n", "@dR :"[tokens[i].type], tokens[i].str, (int)tokens[i].offset);
-	//}
-	//puts("---");
-	//for(uint64_t i = 0; i < num_labels; ++i) {
-	//	printf("str: %.5s, next_idx: %i\n", labels[i].str, (int)labels[i].next_token_idx);
-	//}
+	#ifdef DEBUG
+	for(uint64_t i = 0; i < num_tokens; ++i) {
+		fprintf(stderr, "type: %c; str: %.5s; off: %i\n", "@dR :"[tokens[i].type], tokens[i].str, (int)tokens[i].offset);
+	}
+	fprintf(stderr, "---\n");
+	for(uint64_t i = 0; i < num_labels; ++i) {
+		fprintf(stderr, "str: %.5s, offset: %i\n", labels[i].str, (int)labels[i].offset);
+	}
+	#endif
 
 	emit();
 }

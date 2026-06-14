@@ -1,13 +1,6 @@
-	PUSH_ Rrbp__
-	MOVrr Rrbp__ Rrsp__
 :btest
 	MOVrw Rrdi__ NUM0+0
 :etest
-	MOVrr Rrsi__ Rrsp__
-	SUBrw Rrsp__ x0020_
-	CALL_ @lltoa
-	MOVrr Rrdi__ Rrsi__
-	MOVrr Rrsi__ Rrax__
-	CALL_ @wrout
+	CALL_ @llout
 	XORrr Rrdi__ Rrdi__
 	CALL_ @exit_

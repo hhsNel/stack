@@ -1,0 +1,23 @@
+	LSVq_ Rrdi__ x0000_
+	CALL_ @llout
+	MOVrw Rrdi__ &newln
+	MOVrw Rrsi__ x0001_
+	CALL_ @wrout
+	MOVrr Rrdx__ Rrsp__
+	ADDrw Rrdx__ x0008_
+	LRPq_ Rrdi__ Rrdx__ x0000_
+:loop_
+	TSTrr Rrdi__ Rrdi__
+	JE___ @aloop
+	CALL_ @puts_
+	MOVrw Rrdi__ &newln
+	MOVrw Rrsi__ x0001_
+	CALL_ @wrout
+	ADDrw Rrdx__ x0008_
+	LRPq_ Rrdi__ Rrdx__ x0000_
+	JMP__ @loop_
+:aloop
+	XORrr Rrdi__ Rrdi__
+	CALL_ @exit_
+:newln
+	DB___ x000a_

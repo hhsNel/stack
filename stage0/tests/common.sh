@@ -67,15 +67,17 @@ assert_str() {
 		rm "$tgt_file" "$out_file"
 		exit 1
 	else
-		echo -ne "\toutput matches (" >&2
-		if [[ "$(cat "$tgt_file" | wc -l)" -eq 0 ]]; then
-			cat "$tgt_file" >&2
-			echo -n " == " >&2
-			cat "$out_file" >&2
-		else
-			echo -n "too long" >&2
+		if [[ -n "$verbose" ]]; then
+			echo -ne "\toutput matches (" >&2
+			if [[ "$(cat "$tgt_file" | wc -l)" -eq 0 ]]; then
+				cat "$tgt_file" >&2
+				echo -n " == " >&2
+				cat "$out_file" >&2
+			else
+				echo -n "too long" >&2
+			fi
+			echo ")" >&2
 		fi
-		echo ")" >&2
 		rm "$tgt_file" "$out_file"
 	fi
 }

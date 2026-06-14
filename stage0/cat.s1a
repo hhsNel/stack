@@ -1,0 +1,11 @@
+	MOVrw Rrdi__ x1000_
+	CALL_ @mmaps
+	PUSH_ Rrax__
+	MOVrr Rrdi__ Rrax__
+	MOVrw Rrsi__ x1000_
+	CALL_ @rdin_
+	MOVrr Rrsi__ Rrax__
+	POP__ Rrdi__
+	CALL_ @wrout
+	XORrr Rrdi__ Rrdi__
+	CALL_ @exit_

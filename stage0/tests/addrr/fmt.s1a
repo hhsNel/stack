@@ -1,15 +1,8 @@
-	PUSH_ Rrbp__
-	MOVrr Rrbp__ Rrsp__
 :btest
 	MOVrq Rrdi__ NUM0+48 NUM0+32 NUM0+16 NUM0+0
 	MOVrq Rrsi__ NUM1+48 NUM1+32 NUM1+16 NUM1+0
 	ADDrr Rrdi__ Rrsi__
 :etest
-	MOVrr Rrsi__ Rrsp__
-	SUBrw Rrsp__ x0020_
-	CALL_ @lltoa
-	MOVrr Rrdi__ Rrsi__
-	MOVrr Rrsi__ Rrax__
-	CALL_ @wrout
+	CALL_ @llout
 	XORrr Rrdi__ Rrdi__
 	CALL_ @exit_

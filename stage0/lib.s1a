@@ -1,18 +1,3 @@
-	PUSH_ Rrbp__
-	MOVrr Rrbp__ Rrsp__
-:btest
-	MOVrq Rrdi__ NUM0+48 NUM0+32 NUM0+16 NUM0+0
-	MOVrq Rrsi__ NUM1+48 NUM1+32 NUM1+16 NUM1+0
-	ADDrr Rrdi__ Rrsi__
-:etest
-	MOVrr Rrsi__ Rrsp__
-	SUBrw Rrsp__ x0020_
-	CALL_ @lltoa
-	MOVrr Rrdi__ Rrsi__
-	MOVrr Rrsi__ Rrax__
-	CALL_ @wrout
-	XORrr Rrdi__ Rrdi__
-	CALL_ @exit_
 :lltoa
 	PUSH_ Rrbp__
 	MOVrr Rrbp__ Rrsp__
@@ -36,6 +21,25 @@
 	POP__ Rrsi__
 	POP__ Rrdi__
 	POP__ Rrdx__
+	POP__ Rrbp__
+	RET__
+:memcp
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrdi__
+	PUSH_ Rrsi__
+	PUSH_ Rrdx__
+:_mcpl
+	LRPb_ Rrax__ Rrsi__ x0000_
+	SRPb_ Rrdi__ x0000_ Rrax__
+	INC__ Rrsi__
+	INC__ Rrdi__
+	DEC__ Rrdx__
+	TSTrr Rrdx__ Rrdx__
+	JNE__ @_mcpl
+	POP__ Rrdx__
+	POP__ Rrsi__
+	POP__ Rrdi__
 	POP__ Rrbp__
 	RET__
 :strrv
@@ -79,6 +83,22 @@
 	POP__ Rrdi__
 	POP__ Rrbp__
 	RET__
+:rdin_
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrdi__
+	PUSH_ Rrsi__
+	PUSH_ Rrdx__
+	XORrr Rrax__ Rrax__
+	XORrr Rrdi__ Rrdi__
+	LSVq_ Rrsi__ x0010_
+	LSVq_ Rrdx__ x0008_
+	SYSCL
+	POP__ Rrdx__
+	POP__ Rrsi__
+	POP__ Rrdi__
+	POP__ Rrbp__
+	RET__
 :exit_
 	PUSH_ Rrbp__
 	MOVrr Rrbp__ Rrsp__
@@ -86,6 +106,33 @@
 	MOVrw Rrax__ x003c_
 	SYSCL
 	POP__ Rrax__
+	POP__ Rrbp__
+	RET__
+:mmaps
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrdi__
+	PUSH_ Rrsi__
+	PUSH_ Rrdx__
+	PUSH_ Rrcx__
+	PUSH_ Rr8___
+	PUSH_ Rr9___
+	PUSH_ Rr10__
+	MOVrr Rrsi__ Rrdi__
+	MOVrw Rrax__ x0009_
+	XORrr Rrdi__ Rrdi__
+	MOVrw Rrdx__ x0003_
+	MOVrw Rr10__ x0022_
+	MOVrq Rr8___ xffff_ xffff_ xffff_ xffff_
+	XORrr Rr9___ Rr9___
+	SYSCL
+	POP__ Rr10__
+	POP__ Rr9___
+	POP__ Rr8___
+	POP__ Rrcx__
+	POP__ Rrdx__
+	POP__ Rrsi__
+	POP__ Rrdi__
 	POP__ Rrbp__
 	RET__
 

@@ -7,11 +7,13 @@ BUILDDIR := build
 OBJDIR := $(BUILDDIR)/obj
 OUTDIR := $(BUILDDIR)/tool
 TESTDIR := tests
+S1ALIB ?= lib.s1a
 
 BOOTSTRAP ?= COMPILE
 PREFIX ?= 
 SUFFIX ?= 
 DEBUG ?= 0
+TESTS_VERBOSE ?= 
 
 COMPILE_CFLAGS := -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter
 COMPILE_LDFLAGS := 
@@ -79,17 +81,19 @@ $(OUTDIR):
 check: all
 	PASSED=0; \
 	FAILED=0; \
+	FAILED_NAMES=""; \
 	for f in $(TESTDIR)/*/test.sh; do \
 		if [[ -f $$f ]]; then \
-			if (cd $$(dirname $$f) && ./test.sh $(abspath $(ASSEMBLER)) $(abspath $(EPACK))); then \
+			if (cd $$(dirname $$f) && verbose="$(TESTS_VERBOSE)" ./test.sh $(abspath $(ASSEMBLER)) $(abspath $(EPACK)) $(abspath $(S1ALIB))); then \
 				PASSED=$$(($$PASSED + 1)); \
 			else \
 				FAILED=$$(($$FAILED + 1)); \
+				FAILED_NAMES="$$FAILED_NAMES $$f"; \
 			fi \
 		fi \
 	done; \
 	echo "PASSED: $$PASSED"; \
-	echo "FAILED: $$FAILED"; \
+	echo "FAILED: $$FAILED ($$FAILED_NAMES)"; \
 	exit $$FAILED
 
 clean:

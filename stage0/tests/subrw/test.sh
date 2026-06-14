@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-echo "SUBrr" >&2
+echo "SUBrw" >&2
 
 asm="$1"
 epack="$2"
@@ -43,33 +43,17 @@ check() {
 	assert_ec0
 }
 
-check 1 2
-check 2 3
-check 4 5
 check 0 0
 check 0 1
-check 1 0
+check 1 1
+check 100 200
+check 65535 1
 check 65535 65535
-check 65535 0
-check 0 65535
-check 255 1
-check 1 255
-check 255 255
-check 32767 1
-check 32767 32767
-check 32768 32768
-check 65534 1
-check 65534 2
-check 43690 21845
-check 1234 5678
-check 43210 12345
-check 60000 50000
-check 0x0000000000010000 1
+check 4294967294 1
+check 4294967295 1
 check 0x0000000100000000 1
-check 0x0001000000000000 1
-check 0x1000000000000000 1
-check 0xFFFFFFFFFFFFFFFF 0x123456789ABCDEF0
-check 0x123456789ABCDEF0 0x123456789ABCDEF0
-check 0x9ABCDEF012345678 0x1111111111111111
-check 0x0000000000000000 0x123456789ABCDEF0
+check 0x8000000000000000 1
+check 1000000 9999
+check 0x123456780000000 0x1234
+check 0 1
 

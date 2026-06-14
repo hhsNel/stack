@@ -6,13 +6,14 @@ echo "ADDrr" >&2
 
 asm="$1"
 epack="$2"
+s1alib="$3"
 
-if [[ ! -f "$asm" || ! -f "$epack" ]]; then
+if [[ ! -f "$asm" || ! -f "$epack" || ! -f "$s1alib" ]]; then
 	echo "$0 <assembler> <epack>"
 	exit 1
 fi
 
-source ../common.sh "$asm" "$epack"
+source ../common.sh "$asm" "$epack" "$s1alib"
 trap stop EXIT
 
 result() {
@@ -35,7 +36,7 @@ check() {
 	num1="$2"
 	res="$(result "$num0" "$num1")"
 
-	cat fmt.s0a | set_nr "NUM0" "$num0" | set_nr "NUM1" "$num1" | assemble
+	cat fmt.s1a | set_nr "NUM0" "$num0" | set_nr "NUM1" "$num1" | assemble
 
 	run | assert_str "$res"
 

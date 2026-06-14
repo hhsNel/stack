@@ -4,6 +4,7 @@ BASE64 ?= base64
 BUILDDIR := build
 
 BOOTSTRAP ?= COMPILE
+TESTS_VERBOSE ?= 
 
 CFLAGS := -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter
 LDFLAGS := 
@@ -30,7 +31,7 @@ check: $(STAGES)
 	FAILED=0; \
 	for stg in $(STAGE_NAMES); do \
 		if [[ -f $$stg/Makefile ]]; then \
-			$(MAKE) -C $$stg OUTDIR=$(abspath $(BUILDDIR)) PREFIX=$(PREFIX)$$stg SUFFIX=$(SUFFIX) check; \
+			$(MAKE) -C $$stg OUTDIR=$(abspath $(BUILDDIR)) PREFIX=$(PREFIX)$$stg SUFFIX=$(SUFFIX) TESTS_VERBOSE=$(TESTS_VERBOSE) check; \
 		fi \
 	done;
 

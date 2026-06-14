@@ -1,2 +1,2 @@
 *.sh linguist-language=Shell
-*.s0a linguist-language=Assembly
+*.s1a linguist-language=Assembly

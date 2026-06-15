@@ -54,13 +54,10 @@ assert_str() {
 	echo -en "$tgt_str" > "$tgt_file"
 	if ! cmp "$out_file" "$tgt_file"; then
 		echo >&2
-		echo >&2
-		echo >&2
-		echo -e "\ntgt_file\n" >&2
+		echo -e "tgt_file" >&2
 		cat "$tgt_file" >&2
-		echo -e "\nout_file\n" >&2
+		echo -e "\nout_file" >&2
 		cat "$out_file" >&2
-		echo >&2
 		echo >&2
 		echo >&2
 		echo -e "\toutput differs" >&2

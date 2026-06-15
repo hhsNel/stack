@@ -1,10 +1,13 @@
-	LSVq_ Rrdi__ x0000_
+	JMP__ @_strt
+:main_
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
 	CALL_ @llout
 	MOVrw Rrdi__ &newln
+	PUSH_ Rrsi__
 	MOVrw Rrsi__ x0001_
 	CALL_ @wrout
-	MOVrr Rrdx__ Rrsp__
-	ADDrw Rrdx__ x0008_
+	POP__ Rrdx__
 	LRPq_ Rrdi__ Rrdx__ x0000_
 :loop_
 	TSTrr Rrdi__ Rrdi__
@@ -17,7 +20,8 @@
 	LRPq_ Rrdi__ Rrdx__ x0000_
 	JMP__ @loop_
 :aloop
-	XORrr Rrdi__ Rrdi__
-	CALL_ @exit_
+	XORrr Rrax__ Rrax__
+	POP__ Rrbp__
+	RET__
 :newln
 	DB___ x000a_

@@ -1,3 +1,17 @@
+:_strt
+	XORrr Rrbp__ Rrbp__
+	LSVq_ Rrdi__ x0000_
+	MOVrr Rrsi__ Rrsp__
+	ADDrw Rrsi__ x0008_
+	CALL_ @main_
+	MOVrr Rrdi__ Rrax__
+	CALL_ @exit_
+:main_
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	XORrr Rrax__ Rrax__
+	POP__ Rrbp__
+	RET__
 :puts_
 	PUSH_ Rrbp__
 	MOVrr Rrbp__ Rrsp__

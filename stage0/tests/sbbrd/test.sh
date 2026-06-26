@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-echo "ORrw" >&2
+echo "SBBrd" >&2
 
 asm="$1"
 epack="$2"
@@ -19,7 +19,7 @@ trap stop EXIT
 result() {
 	num0="$1"
 	num1="$2"
-	printf "%llu" $(("$num0" | "$num1"))
+	printf "%llu" $(("$num0" - "$(sign_extend "$num1")"))
 }
 
 set_nr() {
@@ -44,16 +44,16 @@ check() {
 }
 
 check 0 0
-check 0 1
+check 1 0
 check 1 1
-check 100 200
+check 100 1
 check 65535 1
-check 65535 65535
-check 4294967294 1
+check 65536 1
 check 4294967295 1
-check 0x0000000100000000 1
-check 0x7FFFFFFFFFFFFFFF 1
-check 0xFFFFFFFFFFFFFFFF 1
-check 1000000 9999
-check 0x123456780000000 0x1234
+check 4294967296 1
+check 0x0000000100000000 0xFFFFFFFF
+check 0x7FFFFFFFFFFFFFFF 0x7FFFFFFF
+check 0x8000000000000000 1
+check 0 1
+check 1000000 999999
 

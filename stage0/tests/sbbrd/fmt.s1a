@@ -1,0 +1,7 @@
+:btest
+	MOVrq Rrdi__ NUM0+48 NUM0+32 NUM0+16 NUM0+0
+	SBBrd Rrdi__ NUM1+16 NUM1+0
+:etest
+	CALL_ @llout
+	XORrr Rrdi__ Rrdi__
+	CALL_ @exit_

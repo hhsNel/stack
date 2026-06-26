@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-echo "ORrw" >&2
+echo "JB" >&2
 
 asm="$1"
 epack="$2"
@@ -19,7 +19,13 @@ trap stop EXIT
 result() {
 	num0="$1"
 	num1="$2"
-	printf "%llu" $(("$num0" | "$num1"))
+	num0="$(printf '%016s' "$num0" | tr ' ' 0)"
+	num1="$(printf '%016s' "$num1" | tr ' ' 0)"
+	if [[ "$num0" < "$num1" ]];then
+		echo -n 'y'
+	else
+		echo -n 'n'
+	fi
 }
 
 set_nr() {
@@ -44,16 +50,12 @@ check() {
 }
 
 check 0 0
-check 0 1
 check 1 1
-check 100 200
-check 65535 1
-check 65535 65535
-check 4294967294 1
-check 4294967295 1
-check 0x0000000100000000 1
-check 0x7FFFFFFFFFFFFFFF 1
-check 0xFFFFFFFFFFFFFFFF 1
-check 1000000 9999
-check 0x123456780000000 0x1234
+check 0xffffffffffffffff 0xffffffffffffffff
+check 0 1
+check 1 0
+check 0 0xffffffffffffffff
+check 0xffffffffffffffff 0
+check 1 0xffffffffffffffff
+check 0xffffffffffffffff 1
 

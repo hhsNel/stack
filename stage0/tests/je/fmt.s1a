@@ -1,0 +1,16 @@
+:btest
+	MOVrq Rrax__ NUM0+48 NUM0+32 NUM0+16 NUM0+0
+	MOVrq Rrdx__ NUM1+48 NUM1+32 NUM1+16 NUM1+0
+	CMPrr Rrax__ Rrdx__
+	MOVrw Rrdi__ &lbl_y
+	JE___ @etest
+	MOVrw Rrdi__ &lbl_n
+:etest
+	MOVrw Rrsi__ x0001_
+	CALL_ @wrout
+	XORrr Rrdi__ Rrdi__
+	CALL_ @exit_
+:lbl_y
+	DB___ x0079_
+:lbl_n
+	DB___ x006e_

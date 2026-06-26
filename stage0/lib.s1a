@@ -1,24 +1,24 @@
 :_strt
-	XORrr Rrbp__ Rrbp__
-	LSVq_ Rrdi__ x0000_
+	XORrr Rrbp__ Rrbp__ ;_____ ;rbp_= ;0____
+	LSVq_ Rrdi__ x0000_ ;_____ ;rdi_= ;argc_
 	MOVrr Rrsi__ Rrsp__
-	ADDrw Rrsi__ x0008_
+	ADDrw Rrsi__ x0008_ ;_____ ;rsi_= ;argv_
 	CALL_ @main_
-	MOVrr Rrdi__ Rrax__
-	CALL_ @exit_
+	MOVrr Rrdi__ Rrax__ ;_____ ;rdi_= ;main( ;argc, ;argv)
+	CALL_ @exit_ ;_____ ;_____ ;exit_
 :main_
-	PUSH_ Rrbp__
+	PUSH_ Rrbp__ ;_____ ;_____ ;stub_ ;main_ ;_if__ ;real_ ;one__ ;isn't ;found
 	MOVrr Rrbp__ Rrsp__
-	XORrr Rrax__ Rrax__
+	XORrr Rrax__ Rrax__ ;_____ ;return;_0___
 	POP__ Rrbp__
 	RET__
 :puts_
 	PUSH_ Rrbp__
 	MOVrr Rrbp__ Rrsp__
 	PUSH_ Rrsi__
-	CALL_ @strln
+	CALL_ @strln ;_____ ;_____ ;strln
 	MOVrr Rrsi__ Rrax__
-	CALL_ @wrout
+	CALL_ @wrout ;_____ ;_____ ;write ;__out
 	POP__ Rrsi__
 	POP__ Rrbp__
 	RET__
@@ -28,14 +28,14 @@
 	PUSH_ Rrdi__
 	PUSH_ Rrsi__
 :_srln
-	LRPb_ Rrsi__ Rrdi__ x0000_
-	INC__ Rrdi__
-	TSTrr Rrsi__ Rrsi__
-	JNE__ @_srln
-	DEC__ Rrdi__
-	MOVrr Rrax__ Rrdi__
-	LSVq_ Rrdi__ x0008_
-	SUBrr Rrax__ Rrdi__
+	LRPb_ Rrsi__ Rrdi__ x0000_ ;rsi_= ;*rdi_
+	INC__ Rrdi__ ;_____ ;_____ ;++rdi
+	TSTrr Rrsi__ Rrsi__ ;_____ ;if_(_ ;rsi!= ;'\0')
+	JNE__ @_srln ;_____ ;_____ ;_goto ;_srln
+	DEC__ Rrdi__ ;_____ ;_____ ;--rdi
+	MOVrr Rrax__ Rrdi__ ;_____ ;rax_= ;rdi__
+	LSVq_ Rrdi__ x0008_ ;_____ ;rdi_= ;origin;._str
+	SUBrr Rrax__ Rrdi__ ;_____ ;rax_-=;rdi__
 	POP__ Rrsi__
 	POP__ Rrdi__
 	POP__ Rrbp__
@@ -44,12 +44,12 @@
 	PUSH_ Rrbp__
 	MOVrr Rrbp__ Rrsp__
 	PUSH_ Rrsi__
-	SUBrw Rrsp__ x0020_
-	MOVrr Rrsi__ Rrsp__
+	SUBrw Rrsp__ x0020_ ;_____ ;char_ ;s[32]
+	MOVrr Rrsi__ Rrsp__ ;_____ ;rsi_= ;&s___
 	CALL_ @lltoa
-	MOVrr Rrdi__ Rrsi__
-	MOVrr Rrsi__ Rrax__
-	CALL_ @wrout
+	MOVrr Rrdi__ Rrsi__ ;_____ ;rdi_= ;&s___
+	MOVrr Rrsi__ Rrax__ ;_____ ;rsi_= ;lltoa ;(num, ;&s)__
+	CALL_ @wrout ;_____ ;_____ ;write ;(&s,_ ;len)_
 	ADDrw Rrsp__ x0020_
 	POP__ Rrsi__
 	POP__ Rrbp__
@@ -60,20 +60,20 @@
 	PUSH_ Rrdx__
 	PUSH_ Rrdi__
 	PUSH_ Rrsi__
-	MOVrr Rrax__ Rrdi__
+	MOVrr Rrax__ Rrdi__ ;_____ ;rax_= ;num__
 :_llta
-	XORrr Rrdx__ Rrdx__
-	MOVrw Rrdi__ x000a_
-	DIV__ Rrdi__
-	ADDrw Rrdx__ x0030_
-	SRPb_ Rrsi__ x0000_ Rrdx__
-	INC__ Rrsi__
-	TSTrr Rrax__ Rrax__
-	JNE__ @_llta
-	LSVq_ Rrdi__ x0000_
-	SUBrr Rrsi__ Rrdi__
-	CALL_ @strrv
-	MOVrr Rrax__ Rrsi__
+	XORrr Rrdx__ Rrdx__ ;_____ ;rdx_= ;0____
+	MOVrw Rrdi__ x000a_ ;_____ ;rdi_= ;10___
+	DIV__ Rrdi__ ;_____ ;_____ ;rax/= ;10,__ ;rdx_= ;rax_% ;10___
+	ADDrw Rrdx__ x0030_ ;_____ ;rdx+= ;'0'__
+	SRPb_ Rrsi__ x0000_ Rrdx__ ;*rsi= ;rdx__
+	INC__ Rrsi__ ;_____ ;_____ ;++rsi
+	TSTrr Rrax__ Rrax__ ;_____ ;if_(_ ;rax!= ;'\0')
+	JNE__ @_llta ;_____ ;_____ ;_goto ;_llta
+	LSVq_ Rrdi__ x0000_ ;_____ ;rdi_= ;len__
+	SUBrr Rrsi__ Rrdi__ ;_____ ;rsi-= ;len__
+	CALL_ @strrv ;_____ ;_____ ;strrv ;(str, ;len)_
+	MOVrr Rrax__ Rrsi__ ;_____ ;return;_len_
 	POP__ Rrsi__
 	POP__ Rrdi__
 	POP__ Rrdx__
@@ -86,13 +86,13 @@
 	PUSH_ Rrsi__
 	PUSH_ Rrdx__
 :_mmcp
-	LRPb_ Rrax__ Rrsi__ x0000_
-	SRPb_ Rrdi__ x0000_ Rrax__
-	INC__ Rrsi__
-	INC__ Rrdi__
-	DEC__ Rrdx__
-	TSTrr Rrdx__ Rrdx__
-	JNE__ @_mmcp
+	LRPb_ Rrax__ Rrsi__ x0000_ ;rax_= ;*rsi_
+	SRPb_ Rrdi__ x0000_ Rrax__ ;*rdi= ;rax__
+	INC__ Rrsi__ ;_____ ;_____ ;++rsi
+	INC__ Rrdi__ ;_____ ;_____ ;++rdi
+	DEC__ Rrdx__ ;_____ ;_____ ;--rdx
+	TSTrr Rrdx__ Rrdx__ ;_____ ;if_(_ ;rdx_)
+	JNE__ @_mmcp ;_____ ;_____ ;_goto ;_mmcp
 	POP__ Rrdx__
 	POP__ Rrsi__
 	POP__ Rrdi__
@@ -117,7 +117,7 @@
 	ADDrw Rrdi__ x0001_
 	SUBrw Rrcx__ x0001_
 	CMPrr Rrdi__ Rrcx__
-	JLT__ @_srrv
+	JL___ @_srrv
 	POP__ Rrdx__
 	POP__ Rrax__
 	POP__ Rrcx__

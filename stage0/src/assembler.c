@@ -25,6 +25,7 @@ struct token {
 	/* 'R' = reg */
 	/* ' ' or '\t' = instr */
 	/* ':' = label */
+	/* ';' = ignored */
 	/* chars 1-5 are parsed */
 	/* the 6-th char is ignored */
 
@@ -130,14 +131,53 @@ struct instruction instructions[] = {
 	DECL_INSTR("CMPrw", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND4(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x81,0xF8,0x00,0x00,0x00,0x00})
 	DECL_INSTR("CMPrd", 0,  7,  REG_OPERAND(16,REXB), IMM_OPERAND2(40),      IMM_OPERAND2(24),     NO_OPERAND,        NO_OPERAND,       {REXW,0x81,0xF8,0x00,0x00,0x00,0x00})
 
+	DECL_INSTR("MUL__", 0,  3,  REG_OPERAND(16,REXB), NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xF7,0xE0})
+	DECL_INSTR("IMUL_", 0,  3,  REG_OPERAND(16,REXB), NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xF7,0xE8})
 	DECL_INSTR("DIV__", 0,  3,  REG_OPERAND(16,REXB), NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xF7,0xF0})
+	DECL_INSTR("IDIV_", 0,  3,  REG_OPERAND(16,REXB), NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xF7,0xF8})
+
+	DECL_INSTR("IMLrr", 0,  4,  REG_OPERAND(24,REXB), REG_OPERAND(27,REXB),  NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x0F,0xAF,0xC0})
+
+	DECL_INSTR("ROLrb", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC1,0xC0,0x00})
+	DECL_INSTR("RORrb", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC1,0xC8,0x00})
+	DECL_INSTR("RCLrb", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC1,0xD0,0x00})
+	DECL_INSTR("RCRrb", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC1,0xD8,0x00})
+	DECL_INSTR("SHLrb", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC1,0xE0,0x00})
+	DECL_INSTR("SHRrb", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC1,0xE8,0x00})
+	DECL_INSTR("SARrb", 0,  4,  REG_OPERAND(16,REXB), IMM_OPERAND1(24),      NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0xC1,0xF8,0x00})
 
 	DECL_INSTR("TSTrr", 0,  3,  REG_OPERAND(16,REXB), REG_OPERAND(19,REXR),  NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {REXW,0x85,0xC0})
 
+	DECL_INSTR("JO___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x80,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNO__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x81,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JB___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x82,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JC___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x82,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNAE_", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x82,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNB__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x83,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNC__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x83,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JAE__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x83,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JZ___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x84,0x00,0x00,0x00,0x00})
 	DECL_INSTR("JE___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x84,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNZ__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x85,0x00,0x00,0x00,0x00})
 	DECL_INSTR("JNE__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x85,0x00,0x00,0x00,0x00})
-	DECL_INSTR("JLT__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8C,0x00,0x00,0x00,0x00})
-	DECL_INSTR("JGT__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8F,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JBE__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x86,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNA__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x86,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNBE_", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x87,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JA___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x87,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JS___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x88,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNS__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x89,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JP___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8A,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JPE__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8A,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNP__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8B,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JPO__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8B,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JL___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8C,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNGE_", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8C,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNL__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8D,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JGE__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8D,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JLE__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8E,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNG__", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8E,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JNLE_", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8F,0x00,0x00,0x00,0x00})
+	DECL_INSTR("JG___", -1, 6,  IMM_OPERAND4(16),     NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x8F,0x00,0x00,0x00,0x00})
 	DECL_INSTR("SYSCL", -1, 2,  NO_OPERAND,           NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0x0F,0x05})
 
 	DECL_INSTR("JMP__", -1, 5,  IMM_OPERAND4(8),      NO_OPERAND,            NO_OPERAND,           NO_OPERAND,        NO_OPERAND,       {0xE9,0x00,0x00,0x00,0x00})
@@ -296,6 +336,10 @@ tokenize()
 		if(c == '&') {
 			tk.type = TK_ADDR;
 			goto tk_type_found;
+		}
+		if(c == ';') {
+			read(STDIN_FILENO, &c, 1);
+			continue;
 		}
 
 		write(2, "unknown tk type\n", 16);

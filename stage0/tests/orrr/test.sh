@@ -2,7 +2,7 @@
 
 set -eo pipefail
 
-echo "ORrr_" >&2
+echo "ORrr" >&2
 
 asm="$1"
 epack="$2"

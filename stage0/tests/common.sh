@@ -32,7 +32,7 @@ run() {
 		echo -e "\tno file to run" >&2
 		exit 1
 	fi
-	"$file"
+	"$file" "$@"
 }
 
 assert_ec0() {

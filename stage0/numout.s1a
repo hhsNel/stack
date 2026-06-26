@@ -1,4 +1,0 @@
-	MOVrw Rrdi__ x1000_
-	CALL_ @llout
-	XORrr Rrdi__ Rrdi__
-	CALL_ @exit_

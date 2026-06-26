@@ -73,7 +73,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.c | $(OBJDIR)
 	$(CC) $(COMPILE_CFLAGS) -c -o $@ $<
 
 $(OBJDIR):
-	mkdir -p $(OBJDIR)
+	mkdir -p $@
 
 $(OUTDIR):
 	mkdir -p $@
@@ -97,4 +97,4 @@ check: all
 	exit $$FAILED
 
 clean:
-	rm -rf build/
+	rm -rf $(BUILDDIR)

@@ -1,14 +1,1 @@
-arg regs: rdi, rsi, rdx, rcx, r8, r9
-ret regs: rax, rdx
-
-DIV:
-	rdx = high, rax = low
-	then
-	rax = /
-	rdx = %
-
-volatile registers:
-	rax, rcx, rdx, rdi, rsi, r8,  r9,  r10, r11
-non-volatile registers:
-	rbx, rbp, rsp, r12, r13, r14, r15
-
+../stage1/cc

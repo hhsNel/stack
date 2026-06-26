@@ -9,7 +9,7 @@ epack="$2"
 s1alib="$3"
 
 if [[ ! -f "$asm" || ! -f "$epack" || ! -f "$s1alib" ]]; then
-	echo "$0 <assembler> <epack>"
+	echo "$0 <assembler> <epack> <s1alib>"
 	exit 1
 fi
 

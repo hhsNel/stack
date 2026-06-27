@@ -108,16 +108,16 @@
 	PUSH_ Rrdx__
 	MOVrr Rrcx__ Rrdi__
 	ADDrr Rrcx__ Rrsi__
-	SUBrw Rrcx__ x0001_
+	SUBrw Rrcx__ x0001_ ;_____ ;rcx_= ;rdi_+ ;rsi-1
 :_srrv
-	LRPb_ Rrax__ Rrdi__ x0000_
-	LRPb_ Rrdx__ Rrcx__ x0000_
-	SRPb_ Rrdi__ x0000_ Rrdx__
-	SRPb_ Rrcx__ x0000_ Rrax__
-	ADDrw Rrdi__ x0001_
-	SUBrw Rrcx__ x0001_
-	CMPrr Rrdi__ Rrcx__
-	JL___ @_srrv
+	LRPb_ Rrax__ Rrdi__ x0000_ ;rax_= ;*rdi_
+	LRPb_ Rrdx__ Rrcx__ x0000_ ;rdx_= ;*rcx_
+	SRPb_ Rrdi__ x0000_ Rrdx__ ;*rdi= ;rdx__
+	SRPb_ Rrcx__ x0000_ Rrax__ ;*rsi= ;rax__
+	INC__ Rrdi__ ;_____ ;_____ ;++rdi
+	DEC__ Rrcx__ ;_____ ;_____ ;--rcx
+	CMPrr Rrdi__ Rrcx__ ;_____ ;if_(_ ;rdi_< ;rcx_)
+	JL___ @_srrv ;_____ ;_____ ;_goto ;_srrv
 	POP__ Rrdx__
 	POP__ Rrax__
 	POP__ Rrcx__
@@ -131,10 +131,10 @@
 	PUSH_ Rrdx__
 	PUSH_ Rrdi__
 	PUSH_ Rrsi__
-	LSVq_ Rrsi__ x0008_
-	LSVq_ Rrdx__ x0000_
-	MOVrw Rrdi__ x0001_
-	MOVrw Rrax__ x0001_
+	LSVq_ Rrsi__ x0008_ ;_____ ;buf_= ;rsi__
+	LSVq_ Rrdx__ x0000_ ;_____ ;cnt_= ;rdi__
+	MOVrw Rrdi__ x0001_ ;_____ ;fd_=1
+	MOVrw Rrax__ x0001_ ;_____ ;write
 	SYSCL
 	POP__ Rrsi__
 	POP__ Rrdi__
@@ -147,10 +147,10 @@
 	PUSH_ Rrdi__
 	PUSH_ Rrsi__
 	PUSH_ Rrdx__
-	XORrr Rrax__ Rrax__
-	XORrr Rrdi__ Rrdi__
-	LSVq_ Rrsi__ x0010_
-	LSVq_ Rrdx__ x0008_
+	XORrr Rrax__ Rrax__ ;_____ ;read_
+	XORrr Rrdi__ Rrdi__ ;_____ ;fd_=0
+	LSVq_ Rrsi__ x0010_ ;_____ ;buf_= ;rdi__
+	LSVq_ Rrdx__ x0008_ ;_____ ;cnt_= ;rsi__
 	SYSCL
 	POP__ Rrdx__
 	POP__ Rrsi__
@@ -161,8 +161,8 @@
 	PUSH_ Rrbp__
 	MOVrr Rrbp__ Rrsp__
 	PUSH_ Rrax__
-	MOVrw Rrax__ x003c_
-	SYSCL
+	MOVrw Rrax__ x003c_ ;_____ ;exit_
+	SYSCL ;_____ ;_____ ;_____ ;code= ;rdi__
 	POP__ Rrax__
 	POP__ Rrbp__
 	RET__
@@ -176,13 +176,13 @@
 	PUSH_ Rr8___
 	PUSH_ Rr9___
 	PUSH_ Rr10__
-	MOVrr Rrsi__ Rrdi__
-	MOVrw Rrax__ x0009_
-	XORrr Rrdi__ Rrdi__
-	MOVrw Rrdx__ x0003_
-	MOVrw Rr10__ x0022_
-	MOVrq Rr8___ xffff_ xffff_ xffff_ xffff_
-	XORrr Rr9___ Rr9___
+	MOVrr Rrsi__ Rrdi__ ;_____ ;len_= ;rdi__
+	MOVrw Rrax__ x0009_ ;_____ ;mmap_
+	XORrr Rrdi__ Rrdi__ ;_____ ;addr= ;NULL_
+	MOVrw Rrdx__ x0003_ ;_____ ;prot= ;READ| ;WRITE
+	MOVrw Rr10__ x0022_ ;_____ ;flags ;=PRIV ;ATE_| ;ANONY ;MOUS_
+	MOVrq Rr8___ xffff_ xffff_ xffff_ xffff_ ;fd=-1
+	XORrr Rr9___ Rr9___ ;off=0
 	SYSCL
 	POP__ Rr10__
 	POP__ Rr9___

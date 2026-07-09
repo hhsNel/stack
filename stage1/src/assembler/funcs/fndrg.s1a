@@ -1,0 +1,64 @@
+:fndrg
+	PUSH_ Rrbp__
+	MOVrr Rrbp__ Rrsp__
+	PUSH_ Rrdi__
+	PUSH_ Rrsi__
+	PUSH_ Rrdx__
+	PUSH_ Rrcx__
+	XORrr Rrax__ Rrax__ ;_____ ;i_=_0
+	MOVrw Rrcx__ @regts ;_____ ;it=_& ;regts
+:_fdrl
+	LRPb_ Rrsi__ Rrcx__ x0000_
+	LRPb_ Rrdx__ Rrdi__ x0004_
+	CMPrr Rrsi__ Rrdx__ ;_____ ;if_(_ ;rname ;[0]!= ;t.str ;[0])_
+	JNE__ @_fdrc ;_____ ;_____ ;_goto ;condt
+	LRPb_ Rrsi__ Rrcx__ x0001_
+	LRPb_ Rrdx__ Rrdi__ x0005_
+	CMPrr Rrsi__ Rrdx__ ;_____ ;if_(_ ;rname ;[1]!= ;t.str ;[1])_
+	JNE__ @_fdrc ;_____ ;_____ ;_goto ;condt
+	LRPb_ Rrsi__ Rrcx__ x0002_
+	LRPb_ Rrdx__ Rrdi__ x0006_
+	CMPrr Rrsi__ Rrdx__ ;_____ ;if_(_ ;rname ;[2]!= ;t.str ;[2])_
+	JNE__ @_fdrc ;_____ ;_____ ;_goto ;condt
+	LRPb_ Rrsi__ Rrcx__ x0003_
+	LRPb_ Rrdx__ Rrdi__ x0007_
+	CMPrr Rrsi__ Rrdx__ ;_____ ;if_(_ ;rname ;[3]!= ;t.str ;[3])_
+	JNE__ @_fdrc ;_____ ;_____ ;_goto ;condt
+	LRPb_ Rrsi__ Rrcx__ x0004_
+	LRPb_ Rrdx__ Rrdi__ x0010_
+	CMPrr Rrsi__ Rrdx__ ;_____ ;if_(_ ;rname ;[4]!= ;t.str ;[4])_
+	JNE__ @_fdrc ;_____ ;_____ ;_goto ;condt
+	POP__ Rrcx__
+	POP__ Rrdx__
+	POP__ Rrsi__
+	POP__ Rrdi__
+	POP__ Rrbp__
+	RET__
+:_fdrc
+	INC__ Rrax__ ;_____ ;_____ ;++i__
+	ADDrw Rrcx__ x0007_ ;_____ ;++it_
+	CMPrw Rrax__ x0010_ ;_____ ;if(i< ;16)__ ;___// ;sizeof;(regt ;s)=16
+	JL___ @_fdrl ;_____ ;_____ ;_goto ;__for
+	MOVrw Rrdi__ &_fdre
+	MOVrw Rrsi__ x0011_
+	CALL_ @wrout ;_____ ;_____ ;write ;(err)
+	MOVrw Rrdi__ x0001_
+	CALL_ @exit_ ;_____ ;_____ ;exit_ ;(1)__
+:_fdre
+	DB___ x004e_ ;N____
+	DB___ x006f_ ;o____
+	DB___ x0020_ ; ____
+	DB___ x0073_ ;s____
+	DB___ x0075_ ;u____
+	DB___ x0063_ ;c____
+	DB___ x0048_ ;h____
+	DB___ x0020_ ; ____
+	DB___ x0072_ ;r____
+	DB___ x0065_ ;e____
+	DB___ x0067_ ;g____
+	DB___ x0069_ ;i____
+	DB___ x0073_ ;s____
+	DB___ x0074_ ;t____
+	DB___ x0065_ ;e____
+	DB___ x0072_ ;r____
+	DB___ x0010_ ;\n___

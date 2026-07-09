@@ -383,6 +383,9 @@ find_label_offset(struct token t)
 	}
 
 	write(2, "no such label\n", 14);
+	#ifdef DEBUG
+	fprintf(stderr, "str: %.5s\n", t.str);
+	#endif
 	exit(1);
 }
 
@@ -518,10 +521,10 @@ emit()
 }
 
 int main() {
-	tokens = (struct token *)mmap(NULL, 0x4000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+	tokens = (struct token *)mmap(NULL, 0x40000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
 	if(tokens == MAP_FAILED) { write(2, "tokens\n", 6); exit(1); }
 	num_tokens = 0;
-	labels = (struct label *)mmap(NULL, 0x2000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+	labels = (struct label *)mmap(NULL, 0x20000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
 	if(labels == MAP_FAILED) { write(2, "labels\n", 6); exit(1); }
 	num_labels = 0;
 

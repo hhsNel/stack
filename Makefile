@@ -10,26 +10,40 @@ CFLAGS := -std=c99 -Wall -Wextra -Wpedantic -Wno-unused-parameter
 LDFLAGS := 
 LIBS := -lc
 
-STAGES := stg0
+STAGES := stg0 stg1
 
 ifneq ($(PREFIX),)
   override PREFIX := $(PREFIX)-
 endif
 
-.PHONY: all stg0 clean check
+S0_ASM_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX))
+S0_EPACK_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX))
+S1_ASM_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage1-assembler$(SUFFIX))
+S1_EPACK_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage1-epack$(SUFFIX))
 
-all: stg0
+.PHONY: all stg0 check-stg0 stg1 check-stg1 clean check
 
-$(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX): stg0
-$(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX): stg0
-stg0:
-	$(MAKE) -C stage0 CC=$(CC) BASE64=$(BASE64) OUTDIR=$(abspath $(BUILDDIR)) BOOTSTRAP=$(BOOTSTRAP) PREFIX=$(PREFIX)stage0 SUFFIX=$(SUFFIX)
+all: stg1
+
+stg0: $(S0_ASM_NAME) $(S0_EPACK_NAME)
+$(S0_ASM_NAME):
+	$(MAKE) -C stage0 CC=$(CC) BASE64=$(BASE64) OUTDIR=$(abspath $(BUILDDIR)) BOOTSTRAP=$(BOOTSTRAP) PREFIX=$(PREFIX)stage0 SUFFIX=$(SUFFIX) $@
+$(S0_EPACK_NAME):
+	$(MAKE) -C stage0 CC=$(CC) BASE64=$(BASE64) OUTDIR=$(abspath $(BUILDDIR)) BOOTSTRAP=$(BOOTSTRAP) PREFIX=$(PREFIX)stage0 SUFFIX=$(SUFFIX) $@
 check-stg0:
 	$(MAKE) -C stage0 CC=$(CC) BASE64=$(BASE64) OUTDIR=$(abspath $(BUILDDIR)) BOOTSTRAP=$(BOOTSTRAP) PREFIX=$(PREFIX)stage0 SUFFIX=$(SUFFIX) check
+
+stg1: $(S1_ASM_NAME) $(S1_EPACK_NAME)
+$(S1_ASM_NAME): $(S0_ASM_NAME) $(S0_EPACK_NAME)
+		$(MAKE) -C stage1 OUTDIR=$(abspath $(BUILDDIR)) PREFIX=$(PREFIX)stage1 SUFFIX=$(SUFFIX) S0_ASSEMBLER=$(S0_ASM_NAME) S0_EPACK=$(S0_EPACK_NAME) $@
+$(S1_EPACK_NAME): $(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX) $(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX)
+		$(MAKE) -C stage1 OUTDIR=$(abspath $(BUILDDIR)) PREFIX=$(PREFIX)stage1 SUFFIX=$(SUFFIX) S0_ASSEMBLER=$(S0_ASM_NAME) S0_EPACK=$(S0_EPACK_NAME) $@
+check-stg1: $(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX) $(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX)
+		$(MAKE) -C stage1 OUTDIR=$(abspath $(BUILDDIR)) PREFIX=$(PREFIX)stage1 SUFFIX=$(SUFFIX) S0_ASSEMBLER=$(S0_ASM_NAME) S0_EPACK=$(S0_EPACK_NAME) check
 
 check: $(foreach STAGE,$(STAGES),$(STAGE) check-$(STAGE))
 
 clean:
-	$(MAKE) -C stage0 clean
+	for stg in $(foreach STAGE,$(STAGES),$(subst stg,stage,$(STAGE))); do $(MAKE) -C $$stg clean; done
 	rm -rf build/
 

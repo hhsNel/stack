@@ -32,12 +32,12 @@ ASSEMBLER_B64 := $(B64DIR)/assembler.b64
 EPACK_B64 := $(B64DIR)/epack.b64
 ASSEMBLER_SRCS := $(SRCDIR)/assembler.c
 EPACK_SRCS := $(SRCDIR)/epack.c
-ASSEMBLER_OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(ASSEMBLER_SRCS))
-EPACK_OBJS = $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(EPACK_SRCS))
+ASSEMBLER_OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(ASSEMBLER_SRCS))
+EPACK_OBJS := $(patsubst $(SRCDIR)/%.c, $(OBJDIR)/%.o, $(EPACK_SRCS))
 ASSEMBLER_NAME := $(PREFIX)assembler$(SUFFIX)
 EPACK_NAME := $(PREFIX)epack$(SUFFIX)
-ASSEMBLER = $(OUTDIR)/$(ASSEMBLER_NAME)
-EPACK = $(OUTDIR)/$(EPACK_NAME)
+ASSEMBLER := $(OUTDIR)/$(ASSEMBLER_NAME)
+EPACK := $(OUTDIR)/$(EPACK_NAME)
 
 .PHONY: all clean check create-b64
 
@@ -98,3 +98,4 @@ check: all
 
 clean:
 	rm -rf $(BUILDDIR)
+

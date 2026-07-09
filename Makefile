@@ -16,12 +16,12 @@ ifneq ($(PREFIX),)
   override PREFIX := $(PREFIX)-
 endif
 
-S0_ASM_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX))
-S0_EPACK_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX))
-S1_ASM_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage1-assembler$(SUFFIX))
-S1_EPACK_NAME = $(abspath $(BUILDDIR)/$(PREFIX)stage1-epack$(SUFFIX))
-S0_ARGS = CC=$(CC) BASE64=$(BASE64) OUTDIR=$(abspath $(BUILDDIR)) BOOTSTRAP=$(BOOTSTRAP) PREFIX=$(PREFIX)stage0 SUFFIX=$(SUFFIX)
-S1_ARGS = S0_ASSEMBLER=$(S0_ASM_NAME) S0_EPACK=$(S0_EPACK_NAME) OUTDIR=$(abspath $(BUILDDIR)) PREFIX=$(PREFIX)stage1 SUFFIX=$(SUFFIX)
+S0_ASM_NAME := $(abspath $(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX))
+S0_EPACK_NAME := $(abspath $(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX))
+S1_ASM_NAME := $(abspath $(BUILDDIR)/$(PREFIX)stage1-assembler$(SUFFIX))
+S1_EPACK_NAME := $(abspath $(BUILDDIR)/$(PREFIX)stage1-epack$(SUFFIX))
+S0_ARGS := CC=$(CC) BASE64=$(BASE64) OUTDIR=$(abspath $(BUILDDIR)) BOOTSTRAP=$(BOOTSTRAP) PREFIX=$(PREFIX)stage0 SUFFIX=$(SUFFIX)
+S1_ARGS := S0_ASSEMBLER=$(S0_ASM_NAME) S0_EPACK=$(S0_EPACK_NAME) OUTDIR=$(abspath $(BUILDDIR)) PREFIX=$(PREFIX)stage1 SUFFIX=$(SUFFIX)
 
 .PHONY: all stg0 check-stg0 stg1 check-stg1 clean check
 

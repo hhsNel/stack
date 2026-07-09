@@ -38,9 +38,9 @@ check-stg0:
 stg1: $(S1_ASM_NAME) $(S1_EPACK_NAME)
 $(S1_ASM_NAME): $(S0_ASM_NAME) $(S0_EPACK_NAME)
 		$(MAKE) -C stage1 $(S1_ARGS) $@
-$(S1_EPACK_NAME): $(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX) $(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX)
+$(S1_EPACK_NAME): $(S0_ASM_NAME) $(S0_EPACK_NAME)
 		$(MAKE) -C stage1 $(S1_ARGS) $@
-check-stg1: $(BUILDDIR)/$(PREFIX)stage0-assembler$(SUFFIX) $(BUILDDIR)/$(PREFIX)stage0-epack$(SUFFIX)
+check-stg1: $(S0_ASM_NAME) $(S0_EPACK_NAME)
 		$(MAKE) -C stage1 $(S1_ARGS) check
 
 check: $(foreach STAGE,$(STAGES),$(STAGE) check-$(STAGE))

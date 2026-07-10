@@ -1,0 +1,23 @@
+	MOVrw Rrdi__ x1000_
+	CALL_ @mmaps
+	MOVrr Rrdi__ Rrax__
+	MOVrw Rrsi__ &label
+	MOVrw Rrdx__ x000d_
+	CALL_ @memcp
+	CALL_ @puts_
+	XORrr Rrdi__ Rrdi__
+	CALL_ @exit_
+:label
+	DB___ x0048_
+	DB___ x0065_
+	DB___ x006c_
+	DB___ x006c_
+	DB___ x006f_
+	DB___ x0020_
+	DB___ x0057_
+	DB___ x006f_
+	DB___ x0072_
+	DB___ x006c_
+	DB___ x0064_
+	DB___ x000a_
+	DB___ x0000_

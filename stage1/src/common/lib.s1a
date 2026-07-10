@@ -12,27 +12,6 @@
 	XORrr Rrax__ Rrax__ ;_____ ;return;_0___
 	POP__ Rrbp__
 	RET__
-:mmcpy
-	PUSH_ Rrbp__
-	MOVrr Rrbp__ Rrsp__
-	PUSH_ Rrdi__
-	PUSH_ Rrsi__
-	PUSH_ Rrdx__
-	PUSH_ Rrax__
-	JMP__ @_mcpc ;_____ ;_____ ;_goto ;condt
-:_mcpl
-	LRPb_ Rrax__ Rrsi__ x0000_ ;rax_= ;*rsi_
-	SRPb_ Rrdi__ x0000_ Rrax__ ;*rdi= ;rax__
-:_mcpc
-	TSTrr Rrdx__ Rrdx__ ;_____ ;if_(_ ;rdx__ ;!=0_)
-	DEC__ Rrdx__
-	JNE__ @_mcpl ;_____ ;_____ ;_goto ;_mcpl
-	POP__ Rrax__
-	POP__ Rrdx__
-	POP__ Rrsi__
-	POP__ Rrdi__
-	POP__ Rrbp__
-	RET__
 :puts_
 	PUSH_ Rrbp__
 	MOVrr Rrbp__ Rrsp__
@@ -48,6 +27,7 @@
 	MOVrr Rrbp__ Rrsp__
 	PUSH_ Rrdi__
 	PUSH_ Rrsi__
+	XORrr Rrsi__ Rrsi__ ;_____ ;rsi=0
 :_srln
 	LRPb_ Rrsi__ Rrdi__ x0000_ ;rsi_= ;*rdi_
 	INC__ Rrdi__ ;_____ ;_____ ;++rdi

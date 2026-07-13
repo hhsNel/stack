@@ -1,0 +1,970 @@
+:insts
+	DB___ x004d_  DB___ x004f_  DB___ x0056_  DB___ x0072_  DB___ x0072_ ;name= ;MOVrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0089_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004d_  DB___ x004f_  DB___ x0056_  DB___ x0072_  DB___ x0077_ ;name= ;MOVrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C7_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004d_  DB___ x004f_  DB___ x0056_  DB___ x0072_  DB___ x0064_ ;name= ;MOVrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C7_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004d_  DB___ x004f_  DB___ x0056_  DB___ x0072_  DB___ x0071_ ;name= ;MOVrq
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0010_ ;len_= ;1_bts
+	DB___ x0002_  DB___ x0008_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0040_  DB___ xbeef_  DB___ x0002_ ;op1__
+	DB___ x0001_  DB___ x0030_  DB___ xbeef_  DB___ x0002_ ;op2__
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0002_ ;op3__ ;imm_2
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0002_ ;op4__ ;imm_2
+	DB___ x0048_  DB___ x00B8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0049_  DB___ x004e_  DB___ x0043_  DB___ x005f_  DB___ x005f_ ;name= ;INC__
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00FF_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0044_  DB___ x0045_  DB___ x0043_  DB___ x005f_  DB___ x005f_ ;name= ;DEC__
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00FF_  DB___ x00C8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x0044_  DB___ x0044_  DB___ x0072_  DB___ x0072_ ;name= ;ADDrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0001_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x0044_  DB___ x0044_  DB___ x0072_  DB___ x0077_ ;name= ;ADDrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x0044_  DB___ x0044_  DB___ x0072_  DB___ x0064_ ;name= ;ADDrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004f_  DB___ x0052_  DB___ x0072_  DB___ x0072_  DB___ x005f_ ;name= ;ORrr_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0009_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004f_  DB___ x0052_  DB___ x0072_  DB___ x0077_  DB___ x005f_ ;name= ;ORrw_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00C8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004f_  DB___ x0052_  DB___ x0072_  DB___ x0064_  DB___ x005f_ ;name= ;ORrd_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00C8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x0044_  DB___ x0043_  DB___ x0072_  DB___ x0072_ ;name= ;ADCrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0011_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x0044_  DB___ x0043_  DB___ x0072_  DB___ x0077_ ;name= ;ADCrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00D0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x0044_  DB___ x0043_  DB___ x0072_  DB___ x0064_ ;name= ;ADCrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00D0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0042_  DB___ x0042_  DB___ x0072_  DB___ x0072_ ;name= ;SBBrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0019_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0042_  DB___ x0042_  DB___ x0072_  DB___ x0077_ ;name= ;SBBrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00D8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0042_  DB___ x0042_  DB___ x0072_  DB___ x0064_ ;name= ;SBBrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00D8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x004e_  DB___ x0044_  DB___ x0072_  DB___ x0072_ ;name= ;ANDrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0021_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x004e_  DB___ x0044_  DB___ x0072_  DB___ x0077_ ;name= ;ANDrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00E0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0041_  DB___ x004e_  DB___ x0044_  DB___ x0072_  DB___ x0064_ ;name= ;ANDrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00E0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0055_  DB___ x0042_  DB___ x0072_  DB___ x0072_ ;name= ;SUBrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0029_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0055_  DB___ x0042_  DB___ x0072_  DB___ x0077_ ;name= ;SUBrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00E8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0055_  DB___ x0042_  DB___ x0072_  DB___ x0064_ ;name= ;SUBrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00E8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0058_  DB___ x004f_  DB___ x0052_  DB___ x0072_  DB___ x0072_ ;name= ;XORrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0031_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0058_  DB___ x004f_  DB___ x0052_  DB___ x0072_  DB___ x0077_ ;name= ;XORrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00F0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0058_  DB___ x004f_  DB___ x0052_  DB___ x0072_  DB___ x0064_ ;name= ;XORrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00F0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0043_  DB___ x004d_  DB___ x0050_  DB___ x0072_  DB___ x0072_ ;name= ;CMPrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0039_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0043_  DB___ x004d_  DB___ x0050_  DB___ x0072_  DB___ x0077_ ;name= ;CMPrw
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0004_ ;op1__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00F8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0043_  DB___ x004d_  DB___ x0050_  DB___ x0072_  DB___ x0064_ ;name= ;CMPrd
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0007_ ;len_= ;7_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0002_ ;op1__ ;imm_2
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0002_ ;op2__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0081_  DB___ x00F8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004d_  DB___ x0055_  DB___ x004c_  DB___ x005f_  DB___ x005f_ ;name= ;MUL__
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00F7_  DB___ x00E0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0049_  DB___ x004d_  DB___ x0055_  DB___ x004c_  DB___ x005f_ ;name= ;IMUL_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00F7_  DB___ x00E8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0044_  DB___ x0049_  DB___ x0056_  DB___ x005f_  DB___ x005f_ ;name= ;DIV__
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00F7_  DB___ x00F0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0049_  DB___ x0044_  DB___ x0049_  DB___ x0056_  DB___ x005f_ ;name= ;IDIV_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00F7_  DB___ x00F8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0049_  DB___ x004d_  DB___ x004c_  DB___ x0072_  DB___ x0072_ ;name= ;IMLrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0018_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x001b_  DB___ x0001_  DB___ xbeef_ ;op1__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x000F_  DB___ x00AF_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0052_  DB___ x004f_  DB___ x004c_  DB___ x0072_  DB___ x0062_ ;name= ;ROLrb
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C1_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0052_  DB___ x004f_  DB___ x0052_  DB___ x0072_  DB___ x0062_ ;name= ;RORrb
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C1_  DB___ x00C8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0052_  DB___ x0043_  DB___ x004c_  DB___ x0072_  DB___ x0062_ ;name= ;RCLrb
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C1_  DB___ x00D0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0052_  DB___ x0043_  DB___ x0052_  DB___ x0072_  DB___ x0062_ ;name= ;RCRrb
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C1_  DB___ x00D8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0048_  DB___ x004c_  DB___ x0072_  DB___ x0062_ ;name= ;SHLrb
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C1_  DB___ x00E0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0048_  DB___ x0052_  DB___ x0072_  DB___ x0062_ ;name= ;SHRrb
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C1_  DB___ x00E8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0041_  DB___ x0052_  DB___ x0072_  DB___ x0062_ ;name= ;SARrb
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x00C1_  DB___ x00F8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0054_  DB___ x0053_  DB___ x0054_  DB___ x0072_  DB___ x0072_ ;name= ;TSTrr
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0003_ ;len_= ;3_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op1__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0085_  DB___ x00C0_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004f_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JO___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0080_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x004f_  DB___ x005f_  DB___ x005f_ ;name= ;JNO__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0081_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0042_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JB___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0082_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0043_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JC___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0082_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0041_  DB___ x0045_  DB___ x005f_ ;name= ;JNAE_
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0082_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0042_  DB___ x005f_  DB___ x005f_ ;name= ;JNB__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0083_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0043_  DB___ x005f_  DB___ x005f_ ;name= ;JNC__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0083_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0041_  DB___ x0045_  DB___ x005f_  DB___ x005f_ ;name= ;JAE__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0083_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x005a_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JZ___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0084_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0045_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JE___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0084_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x005a_  DB___ x005f_  DB___ x005f_ ;name= ;JNZ__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0085_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0045_  DB___ x005f_  DB___ x005f_ ;name= ;JNE__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0085_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0042_  DB___ x0045_  DB___ x005f_  DB___ x005f_ ;name= ;JBE__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0086_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0041_  DB___ x005f_  DB___ x005f_ ;name= ;JNA__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0086_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0042_  DB___ x0045_  DB___ x005f_ ;name= ;JNBE_
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0087_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0041_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JA___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0087_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0053_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JS___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0088_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0053_  DB___ x005f_  DB___ x005f_ ;name= ;JNS__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0089_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0050_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JP___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008A_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0050_  DB___ x0045_  DB___ x005f_  DB___ x005f_ ;name= ;JPE__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008A_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0050_  DB___ x005f_  DB___ x005f_ ;name= ;JNP__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008B_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0050_  DB___ x004f_  DB___ x005f_  DB___ x005f_ ;name= ;JPO__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008B_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004c_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JL___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008C_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0047_  DB___ x0045_  DB___ x005f_ ;name= ;JNGE_
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008C_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x004c_  DB___ x005f_  DB___ x005f_ ;name= ;JNL__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008D_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0047_  DB___ x0045_  DB___ x005f_  DB___ x005f_ ;name= ;JGE__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008D_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004c_  DB___ x0045_  DB___ x005f_  DB___ x005f_ ;name= ;JLE__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008E_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x0047_  DB___ x005f_  DB___ x005f_ ;name= ;JNG__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008E_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004e_  DB___ x004c_  DB___ x0045_  DB___ x005f_ ;name= ;JNLE_
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008F_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x0047_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;JG___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0001_  DB___ x0010_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x008F_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0059_  DB___ x0053_  DB___ x0043_  DB___ x004c_ ;name= ;SYSCL
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0002_ ;len_= ;2_bts
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op0__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x000F_  DB___ x0005_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004a_  DB___ x004d_  DB___ x0050_  DB___ x005f_  DB___ x005f_ ;name= ;JMP__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0001_  DB___ x0008_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x00E9_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0043_  DB___ x0041_  DB___ x004c_  DB___ x004c_  DB___ x005f_ ;name= ;CALL_
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0001_  DB___ x0008_  DB___ xbeef_  DB___ x0004_ ;op0__ ;imm_4
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x00E8_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0052_  DB___ x0045_  DB___ x0054_  DB___ x005f_  DB___ x005f_ ;name= ;RET__
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0001_ ;len_= ;1_bts
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op0__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x00C3_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0050_  DB___ x0055_  DB___ x0053_  DB___ x0048_  DB___ x005f_ ;name= ;PUSH_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0002_ ;len_= ;2_bts
+	DB___ x0002_  DB___ x0008_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0050_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0050_  DB___ x004f_  DB___ x0050_  DB___ x005f_  DB___ x005f_ ;name= ;POP__
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0002_ ;len_= ;2_bts
+	DB___ x0002_  DB___ x0008_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0058_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0053_  DB___ x0056_  DB___ x0071_  DB___ x005f_ ;name= ;LSVq_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x008B_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0053_  DB___ x0056_  DB___ x0064_  DB___ x005f_ ;name= ;LSVd_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x008B_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0053_  DB___ x0056_  DB___ x0077_  DB___ x005f_ ;name= ;LSVw_
+	DB___ x0001_ ;rex__ ;byte_ ;_=_1_
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0002_  DB___ x001b_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0066_  DB___ x0040_  DB___ x008B_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0053_  DB___ x0056_  DB___ x0062_  DB___ x005f_ ;name= ;LSVb_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x008A_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0053_  DB___ x0056_  DB___ x0071_  DB___ x005f_ ;name= ;SSVq_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0089_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0053_  DB___ x0056_  DB___ x0064_  DB___ x005f_ ;name= ;SSVd_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x0089_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0053_  DB___ x0056_  DB___ x0077_  DB___ x005f_ ;name= ;SSVw_
+	DB___ x0001_ ;rex__ ;byte_ ;_=_1_
+	DB___ x0006_ ;len_= ;6_bts
+	DB___ x0002_  DB___ x001b_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0028_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0066_  DB___ x0040_  DB___ x0089_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0053_  DB___ x0056_  DB___ x0062_  DB___ x005f_ ;name= ;SSVb_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x0088_  DB___ x0044_  DB___ x0024_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0052_  DB___ x0050_  DB___ x0071_  DB___ x005f_ ;name= ;LRPq_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op1__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op2__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x008B_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0052_  DB___ x0050_  DB___ x0064_  DB___ x005f_ ;name= ;LRPd_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op1__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op2__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x008B_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0052_  DB___ x0050_  DB___ x0077_  DB___ x005f_ ;name= ;LRPw_
+	DB___ x0001_ ;rex__ ;byte_ ;_=_1_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x001b_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0002_  DB___ x0018_  DB___ x0001_  DB___ xbeef_ ;op1__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op2__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0066_  DB___ x0040_  DB___ x008B_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x004c_  DB___ x0052_  DB___ x0050_  DB___ x0062_  DB___ x005f_ ;name= ;LRPb_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op0__ ;regop ;REX_R
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op1__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op2__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x008A_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0052_  DB___ x0050_  DB___ x0071_  DB___ x005f_ ;name= ;SRPq_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op2__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0048_  DB___ x0089_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0052_  DB___ x0050_  DB___ x0064_  DB___ x005f_ ;name= ;SRPd_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op2__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x0089_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0052_  DB___ x0050_  DB___ x0077_  DB___ x005f_ ;name= ;SRPw_
+	DB___ x0001_ ;rex__ ;byte_ ;_=_1_
+	DB___ x0005_ ;len_= ;5_bts
+	DB___ x0002_  DB___ x0018_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0020_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0002_  DB___ x001b_  DB___ x0004_  DB___ xbeef_ ;op2__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0066_  DB___ x0040_  DB___ x0089_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0053_  DB___ x0052_  DB___ x0050_  DB___ x0062_  DB___ x005f_ ;name= ;SRPb_
+	DB___ x0000_ ;rex__ ;byte_ ;_=_0_
+	DB___ x0004_ ;len_= ;4_bts
+	DB___ x0002_  DB___ x0010_  DB___ x0001_  DB___ xbeef_ ;op0__ ;regop ;REX_B
+	DB___ x0001_  DB___ x0018_  DB___ xbeef_  DB___ x0001_ ;op1__ ;imm_1
+	DB___ x0002_  DB___ x0013_  DB___ x0004_  DB___ xbeef_ ;op2__ ;regop ;REX_R
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0040_  DB___ x0088_  DB___ x0040_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0044_  DB___ x0042_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;DB___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0001_ ;len_= ;1_bts
+	DB___ x0001_  DB___ x0000_  DB___ xbeef_  DB___ x0001_ ;op0__ ;imm_1
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__
+;_____
+	DB___ x0044_  DB___ x0057_  DB___ x005f_  DB___ x005f_  DB___ x005f_ ;name= ;DW___
+	DB___ xffff_ ;rex__ ;byte_ ;_=_-1
+	DB___ x0002_ ;len_= ;2_bts
+	DB___ x0001_  DB___ x0000_  DB___ xbeef_  DB___ x0002_ ;op0__ ;imm_2
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op1__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op2__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op3__ ;no_op ;erand
+	DB___ x0000_  DB___ xbeef_  DB___ xbeef_  DB___ xbeef_ ;op4__ ;no_op ;erand
+	DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_  DB___ x0000_ ;encod ;ing__

@@ -46,22 +46,22 @@ enum operand_type {
 
 struct operand {
 	enum operand_type type;
-	uint64_t bit_offset;
-	uint64_t rex_bit;
-	uint64_t imm_len;
+	uint8_t bit_offset;
+	uint8_t rex_bit;
+	uint8_t imm_len;
 };
 
 struct instruction {
 	char name[5];
-	int64_t rex_byte;
-	uint64_t len;
+	int8_t rex_byte;
+	uint8_t len;
 	struct operand op0, op1, op2, op3, op4;
 	uint8_t encoding[15];
 };
 
 struct reg {
 	char name[5];
-	uint64_t encoding;
+	uint8_t encoding;
 	uint8_t rex;
 };
 
@@ -521,10 +521,10 @@ emit()
 }
 
 int main() {
-	tokens = (struct token *)mmap(NULL, 0x40000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+	tokens = (struct token *)mmap(NULL, 0x400000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
 	if(tokens == MAP_FAILED) { write(2, "tokens\n", 6); exit(1); }
 	num_tokens = 0;
-	labels = (struct label *)mmap(NULL, 0x20000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
+	labels = (struct label *)mmap(NULL, 0x200000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
 	if(labels == MAP_FAILED) { write(2, "labels\n", 6); exit(1); }
 	num_labels = 0;
 

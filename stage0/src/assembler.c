@@ -222,11 +222,6 @@ struct instruction instructions[] = {
 #undef DECL_INSTR
 };
 
-struct token *tokens;
-uint64_t num_tokens;
-struct label *labels;
-uint64_t num_labels;
-
 void
 mem_cpy(void *dst, void *src, uint64_t size)
 {
@@ -281,7 +276,7 @@ find_instr(struct token t)
 }
 
 void
-tokenize()
+tokenize(struct token *tokens, uint64_t *num_tokens, struct label *labels, uint64_t *num_labels)
 {
 	char c;
 	struct token tk;
@@ -328,8 +323,8 @@ tokenize()
 			tk.type = TK_LABEL;
 			mem_cpy(l.str, tk.str, 5);
 			l.offset = prev_offset;
-			labels[num_labels] = l;
-			++num_labels;
+			labels[*num_labels] = l;
+			++ *num_labels;
 			read(STDIN_FILENO, &c, 1);
 			continue;
 		}
@@ -352,8 +347,8 @@ tokenize()
 		ret = read(STDIN_FILENO, &c, 1);
 		if(ret == 0) break;
 
-		tokens[num_tokens] = tk;
-		++num_tokens;
+		tokens[*num_tokens] = tk;
+		++ *num_tokens;
 	}
 }
 
@@ -366,7 +361,7 @@ parse_hex_dig(char c)
 }
 
 uint64_t
-find_label_offset(struct token t)
+find_label_offset(struct token t, struct label *labels, uint64_t num_labels)
 {
 	uint64_t i;
 	struct label l;
@@ -390,7 +385,7 @@ find_label_offset(struct token t)
 }
 
 uint64_t
-parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past_instr)
+parse_operand(struct token *tokens, struct label *labels, uint64_t num_labels, uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past_instr)
 {
 	struct token tk;
 	struct reg r;
@@ -442,7 +437,7 @@ parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past
 			return 0;
 		}
 		if(tk.type == TK_REF) {
-			operand_encoding = find_label_offset(tk);
+			operand_encoding = find_label_offset(tk, labels, num_labels);
 			operand_encoding -= offset_past_instr;
 
 			mem_cpy(enc, &operand_encoding, op.imm_len);
@@ -451,7 +446,7 @@ parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past
 			return 0;
 		}
 		if(tk.type == TK_ADDR) {
-			operand_encoding = find_label_offset(tk);
+			operand_encoding = find_label_offset(tk, labels, num_labels);
 			operand_encoding += 0x400078;
 
 			mem_cpy(enc, &operand_encoding, op.imm_len);
@@ -468,7 +463,7 @@ parse_operand(uint64_t *i, uint8_t *enc, struct operand op, uint64_t offset_past
 }
 
 void
-emit()
+emit(struct token *tokens, uint64_t num_tokens, struct label *labels, uint64_t num_labels)
 {
 	struct token tk;
 	struct instruction instr;
@@ -498,11 +493,11 @@ emit()
 
 		len = instr.len;
 		mem_cpy(enc, instr.encoding, len);
-		rex |= parse_operand(&i, enc, instr.op0, tk.offset + len);
-		rex |= parse_operand(&i, enc, instr.op1, tk.offset + len);
-		rex |= parse_operand(&i, enc, instr.op2, tk.offset + len);
-		rex |= parse_operand(&i, enc, instr.op3, tk.offset + len);
-		rex |= parse_operand(&i, enc, instr.op4, tk.offset + len);
+		rex |= parse_operand(tokens, labels, num_labels, &i, enc, instr.op0, tk.offset + len);
+		rex |= parse_operand(tokens, labels, num_labels, &i, enc, instr.op1, tk.offset + len);
+		rex |= parse_operand(tokens, labels, num_labels, &i, enc, instr.op2, tk.offset + len);
+		rex |= parse_operand(tokens, labels, num_labels, &i, enc, instr.op3, tk.offset + len);
+		rex |= parse_operand(tokens, labels, num_labels, &i, enc, instr.op4, tk.offset + len);
 
 		if(instr.rex_byte != -1) {
 			enc[instr.rex_byte] = rex;
@@ -521,6 +516,11 @@ emit()
 }
 
 int main() {
+	struct token *tokens;
+	uint64_t num_tokens;
+	struct label *labels;
+	uint64_t num_labels;
+
 	tokens = (struct token *)mmap(NULL, 0x400000, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0);
 	if(tokens == MAP_FAILED) { write(2, "tokens\n", 6); exit(1); }
 	num_tokens = 0;
@@ -528,7 +528,7 @@ int main() {
 	if(labels == MAP_FAILED) { write(2, "labels\n", 6); exit(1); }
 	num_labels = 0;
 
-	tokenize();
+	tokenize(tokens, &num_tokens, labels, &num_labels);
 
 	#ifdef DEBUG
 	for(uint64_t i = 0; i < num_tokens; ++i) {
@@ -540,6 +540,6 @@ int main() {
 	}
 	#endif
 
-	emit();
+	emit(tokens, num_tokens, labels, num_labels);
 }
 
